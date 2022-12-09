@@ -1,4 +1,4 @@
-import { access } from "node:fs/promises";
+import { access } from "fs/promises";
 import { DEFAULT_ERRORS } from "../../helpers/constants.js";
 import { normalizePath } from "../../helpers/utils.js";
 export const cd = async (currentPath, ...params) => {

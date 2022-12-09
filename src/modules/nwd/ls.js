@@ -1,4 +1,4 @@
-import { readdir, stat } from "fs/promises";
+import { readdir } from "fs/promises";
 import { DEFAULT_ERRORS } from "../../helpers/constants.js";
 
 export const ls = async (currentPath, ...params) => {
