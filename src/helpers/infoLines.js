@@ -1,5 +1,5 @@
 export const writeCurrentPath = (path) => {
-  console.log(`\nYou are currently in ${path}\n`);
+  console.log(`You are currently in ${path}`);
 };
 
 export const writeHelloMsg = (username) => {

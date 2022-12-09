@@ -17,7 +17,7 @@ writeCurrentPath(currentPath);
 readLine.on("line", (input) => {
   if (input === ".exit") exit(username);
   else {
-    callCommand(input, currentPath)
+    callCommand(currentPath, input)
       .then((result) => {
         if (result?.path) {
           currentPath = result?.path;

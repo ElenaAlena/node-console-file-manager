@@ -1,3 +1,4 @@
+import { normalize, isAbsolute, join } from "path";
 import { readLine } from "../index.js";
 import { writeGoodbyeMsg } from "./infoLines.js";
 
@@ -9,6 +10,11 @@ export const getUserName = (params) => {
 };
 
 export const exit = (username) => {
-    writeGoodbyeMsg(username)
-    readLine.close();
-  };
+  writeGoodbyeMsg(username);
+  readLine.close();
+};
+
+export const normalizePath = (currentPath, newPath) => {
+  const normalizePath = normalize(newPath);
+  return isAbsolute(normalizePath) ? normalizePath : join(currentPath, newPath);
+};

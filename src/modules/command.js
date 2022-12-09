@@ -28,7 +28,7 @@ const METHODS_LIST = {
   decompress,
 };
 
-export const callCommand = async (input, path) => {
+export const callCommand = async (path, input) => {
     
   const params = input.trim().split(/\s+/g);
   const command = params.shift();
