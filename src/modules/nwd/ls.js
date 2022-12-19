@@ -1,6 +1,12 @@
 import { readdir } from "fs/promises";
 import { DEFAULT_ERRORS } from "../../helpers/constants.js";
 
+const checkType = (dirent) => {
+  if (dirent.isDirectory()) return "directory";
+  if (dirent.isFile()) return "file";
+  return "";
+};
+
 export const ls = async (currentPath, ...params) => {
   if (params.length !== 0) {
     throw DEFAULT_ERRORS.invalidInput;
@@ -11,9 +17,10 @@ export const ls = async (currentPath, ...params) => {
       .map((dirent) => {
         return {
           name: dirent.name,
-          type: dirent.isDirectory() ? "directory" : "file",
+          type: checkType(dirent),
         };
       })
+      .filter(({ type }) => type)
       .sort((el1, el2) => {
         const aCheck = el1.type === "directory" ? 1 : 0;
         const bCheck = el2.type === "directory" ? 1 : 0;

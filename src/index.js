@@ -7,6 +7,7 @@ import { callCommand } from "./modules/command.js";
 
 export const readLine = readline.createInterface({ input, output });
 
+
 const username = getUserName(process.argv.slice(2));
 let currentPath = os.homedir();
 
